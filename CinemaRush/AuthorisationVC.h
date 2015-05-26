@@ -14,6 +14,6 @@ NS_ENUM(NSInteger, TextFieldType)
     TextFieldTypePassword
 };
 
-@interface AuthorisationVC : UIViewController <UITextFieldDelegate>
+@interface AuthorisationVC : UIViewController <UITextFieldDelegate, UITabBarControllerDelegate>
 
 @end

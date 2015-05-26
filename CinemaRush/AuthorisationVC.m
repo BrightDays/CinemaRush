@@ -9,6 +9,12 @@
 #import "AuthorisationVC.h"
 #import "Categories.h"
 #import "CustomTabBarController.h"
+#import "HomePageVC.h"
+#import "SettingsVC.h"
+#import "ProfileVC.h"
+#import "SearchVC.h"
+#import "MapVC.h"
+
 
 @interface AuthorisationVC ()
 
@@ -167,8 +173,8 @@
 {
     if ([self.loginTextField.text isEqualToString:@"admin"] && [self.passwordTextField.text isEqualToString:@"admin"])
     {
-        CustomTabBarController *tabBarController = [CustomTabBarController new];
-        [self presentViewController:tabBarController animated:YES completion:nil];
+        CustomTabBarController *controller = [CustomTabBarController new];
+        [self presentViewController:controller animated:YES completion:nil];
     }
 }
 
