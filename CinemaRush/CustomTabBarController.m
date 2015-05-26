@@ -34,12 +34,10 @@
 {
     SearchVC *searchVC = [SearchVC new];
     searchVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"search" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
-                           
-    
     
     
     self.tabBar.barTintColor = [UIColor colorFromHexString:@"#232631"];
-    self.viewControllers = @[vc1, vc2];
+//    self.viewControllers = @[vc1, vc2];
 
 }
 
