@@ -8,6 +8,7 @@
 
 #import "AuthorisationVC.h"
 #import "Categories.h"
+#import "CustomTabBarController.h"
 
 @interface AuthorisationVC ()
 
@@ -77,7 +78,8 @@
 {
     self.loginTextField = [[UITextField alloc] initWithFrame:CGRectMake((self.view.width - self.textFieldsWidth) / 2, self.view.height / 2 - 60, self.textFieldsWidth, self.textFieldsHeight)];
     self.loginTextField.backgroundColor = [UIColor whiteColorWithAlpha:0.4f];
-    self.loginTextField.text = @"Login";
+    self.loginTextField.placeholder = @"Login";
+    self.loginTextField.text = @"";
     self.loginTextField.layer.cornerRadius = 10.f;
     self.loginTextField.textColor = [UIColor whiteColorWithAlpha:0.8f];
     self.loginTextField.textAlignment = NSTextAlignmentCenter;
@@ -89,12 +91,14 @@
 {
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.loginTextField.originX, self.loginTextField.originY + self.loginTextField.height + 10, self.textFieldsWidth, self.textFieldsHeight)];
     self.passwordTextField.backgroundColor = self.loginTextField.backgroundColor;
-    self.passwordTextField.text = @"Password";
+    self.passwordTextField.placeholder = @"Password";
+    self.passwordTextField.text = @"";
     self.passwordTextField.layer.cornerRadius = 10.f;
     self.passwordTextField.textColor = [UIColor whiteColorWithAlpha:0.8f];
     self.passwordTextField.textAlignment = NSTextAlignmentCenter;
     self.passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.passwordTextField.delegate = self;
+    self.passwordTextField.secureTextEntry = YES;
     self.passwordTextField.tag = TextFieldTypePassword;
 }
 
@@ -149,27 +153,6 @@
 }
 
 
-#pragma mark - UITextFieldDelegate
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    textField.text = @"";
-    if (textField.tag == TextFieldTypePassword)
-    {
-        textField.secureTextEntry = YES;
-    }
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{
-    if ([textField.text isEqualToString:@""])
-        textField.text = self.textFieldNames[textField.tag];
-    if (textField.tag == TextFieldTypePassword)
-    {
-        textField.secureTextEntry = NO;
-    }
-}
-
 #pragma mark - Actions
 
 - (void) tapOnBackgroundAction:(UITapGestureRecognizer*)sender
@@ -184,23 +167,8 @@
 {
     if ([self.loginTextField.text isEqualToString:@"admin"] && [self.passwordTextField.text isEqualToString:@"admin"])
     {
-        UITabBarController *vc = [[UITabBarController alloc] init];
-        vc.view.backgroundColor = [UIColor redColor];
-        [self presentViewController:vc animated:YES completion:nil];
-        
-        UIViewController *vc1 = [UIViewController new];
-        vc1.view.backgroundColor = [UIColor purpleColor];
-        vc1.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
-        
-        
-        UIViewController *vc2 = [UIViewController new];
-        vc2.view.backgroundColor = [UIColor greenColor];
-        vc2.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:1];
-
-        vc.tabBar.barTintColor = [UIColor colorFromHexString:@"#232631"];
-        
-        
-        vc.viewControllers = @[vc1, vc2];
+        CustomTabBarController *tabBarController = [CustomTabBarController new];
+        [self presentViewController:tabBarController animated:YES completion:nil];
     }
 }
 

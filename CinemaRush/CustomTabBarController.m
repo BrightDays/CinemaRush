@@ -33,12 +33,22 @@
 - (void) initControllers
 {
     SearchVC *searchVC = [SearchVC new];
-    searchVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"search" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    searchVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Search" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
+    MapVC *mapVC = [MapVC new];
+    mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
-    self.tabBar.barTintColor = [UIColor colorFromHexString:@"#232631"];
-//    self.viewControllers = @[vc1, vc2];
+    HomePageVC *homeVC = [HomePageVC new];
+    homeVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
 
+    SettingsVC *settingsVC = [SettingsVC new];
+    settingsVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+
+    ProfileVC *profileVC = [ProfileVC new];
+    profileVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+
+    self.tabBar.barTintColor = [UIColor colorFromHexString:@"#232631"];
+    self.viewControllers = @[searchVC, mapVC, homeVC, settingsVC, profileVC];
 }
 
 - (void)viewDidLoad {
