@@ -113,7 +113,7 @@
     self.textFieldsWidth = self.view.width - 100;
     self.textFieldsHeight = 44;
     self.textFieldNames = @[@"Login", @"Password"];
-    
+   
     [self initLoginTextField];
     [self initPasswordTextField];
     [self.view addSubview:self.loginTextField];
