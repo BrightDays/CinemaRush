@@ -30,6 +30,10 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void) initControllers
 {
     SearchVC *searchVC = [SearchVC new];
@@ -56,10 +60,5 @@
     [[UITabBar appearance] setSelectionIndicatorImage:whiteBackground];
 
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 
 @end
