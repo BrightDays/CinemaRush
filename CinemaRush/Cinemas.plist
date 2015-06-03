@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<integer>0</integer>
+		<key>name</key>
+		<string>SilverScreen</string>
+		<key>fileName</key>
+		<string>siverScreen</string>
+		<key>info</key>
+		<string>Кинотеатр Silver Screen Cinemas распахнул свои двери 13 ноября 2014 года. Это первый многозальный кинотеатр в Минске! </string>
+		<key>films</key>
+		<array>
+			<integer>0</integer>
+			<string>3</string>
+			<string>8</string>
+		</array>
+		<key>x</key>
+		<real>53.890224</real>
+		<key>y</key>
+		<string>27.554375</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>Замок</string>
+		<key>fileName</key>
+		<string>zamok</string>
+		<key>info</key>
+		<string>3D Кино &quot;В Замке&quot; располагается на четвертом этаже торгового центра &quot;Замок&quot;.</string>
+		<key>films</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+			<string>2</string>
+			<string>3</string>
+			<string>4</string>
+		</array>
+		<key>x</key>
+		<real>53.92634</real>
+		<key>y</key>
+		<string>27.5174</string>
+	</dict>
+</array>
+</plist>
