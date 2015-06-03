@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AuthorisationVC.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -117,6 +118,38 @@
 }
 
 #pragma mark - Core Data Saving support
+
+- (void)saveNewUser:(NSString*)login andPassword:(NSString*)password
+{
+    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    
+    user.login = login;
+    user.password = password;
+    [self saveContext];
+}
+
+- (BOOL) confirmAuthorizationWithLogin:(NSString*)login andPassword:(NSString*)password
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(login == %@) AND (password == %@)", login, password];
+    [request setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    return results.count > 0;
+}
+
+- (BOOL) checkUniqueLogin:(NSString*)login
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(login == %@)", login];
+    [request setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    return results.count == 0;
+}
 
 - (void)saveContext {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;

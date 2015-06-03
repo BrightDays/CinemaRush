@@ -28,4 +28,6 @@
 - (UIImage*) getFilmImageById:(NSInteger)identifier searchText:(NSString*)text;
 - (NSString*) getFilmLinkToKpById:(NSInteger)identifier searchText:(NSString*)text;
 
+-(NSArray*) getRandomFilmsIdsWithCount:(NSInteger)count;
+
 @end

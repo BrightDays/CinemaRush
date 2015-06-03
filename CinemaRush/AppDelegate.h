@@ -19,7 +19,9 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (void)saveNewUser:(NSString*)login andPassword:(NSString*)password;
+- (BOOL) confirmAuthorizationWithLogin:(NSString*)login andPassword:(NSString*)password;
+- (BOOL) checkUniqueLogin:(NSString*)login;
 
 @end
 

@@ -9,11 +9,8 @@
 #import "AuthorisationVC.h"
 #import "Categories.h"
 #import "CustomTabBarController.h"
-#import "HomePageVC.h"
-#import "SettingsVC.h"
-#import "ProfileVC.h"
-#import "SearchVC.h"
-#import "MapVC.h"
+#import "SignUpVC.h"
+#import "AppDelegate.h"
 
 
 @interface AuthorisationVC ()
@@ -25,6 +22,7 @@
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic) CGFloat textFieldsWidth;
 @property (nonatomic) CGFloat textFieldsHeight;
+@property (nonatomic, strong) UIButton *signUpButton;
 
 @end
 
@@ -44,6 +42,7 @@
     [self initBackground];
     [self initTextFields];
     [self initLoginButton];
+    [self initSignUpButton];
     [self initLogoImageView];
     [self animateUI];
 }
@@ -78,6 +77,17 @@
     self.loginButton.layer.cornerRadius = 10.f;
     [self.loginButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
+}
+
+- (void) initSignUpButton
+{
+    self.signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(self.loginTextField.originX, self.loginButton.originY + self.loginButton.height + 10, self.textFieldsWidth, self.textFieldsHeight)];
+    [self.signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    [self.signUpButton setTitleColor:[UIColor whiteColorWithAlpha:0.6f] forState:UIControlStateNormal];
+    self.signUpButton.backgroundColor = [UIColor colorFromHexString:@"#cc80ff" withAlpha:0.7f];
+    self.signUpButton.layer.cornerRadius = 10.f;
+    [self.signUpButton addTarget:self action:@selector(signupButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.signUpButton];
 }
 
 - (void) initLoginTextField
@@ -154,8 +164,24 @@
         weakSelf.loginButton.frame = loginButtonFrame;
     }completion:nil];
     
-    
-    
+    CGRect signUpButtonFrame = self.signUpButton.frame;
+    self.signUpButton.frame = CGRectMake(self.view.width + self.textFieldsWidth, self.signUpButton.originY, self.textFieldsWidth, self.textFieldsHeight);
+    [UIView animateWithDuration:1.f delay:1.5f usingSpringWithDamping:0.2f initialSpringVelocity:0.f options:0 animations:^{
+        weakSelf.signUpButton.frame = signUpButtonFrame;
+    }completion:nil];
+}
+
+-(void)shakePasswordTextField
+{
+    CABasicAnimation *shake = [CABasicAnimation animationWithKeyPath:@"position"];
+    [shake setDuration:0.1];
+    [shake setRepeatCount:2];
+    [shake setAutoreverses:YES];
+    [shake setFromValue:[NSValue valueWithCGPoint:
+                         CGPointMake(self.passwordTextField.center.x - 10,self.passwordTextField.center.y)]];
+    [shake setToValue:[NSValue valueWithCGPoint:
+                       CGPointMake(self.passwordTextField.center.x + 10, self.passwordTextField.center.y)]];
+    [self.passwordTextField.layer addAnimation:shake forKey:@"position"];
 }
 
 
@@ -172,11 +198,23 @@
 
 - (void) loginButtonAction:(UIButton*)sender
 {
-    if ([self.loginTextField.text isEqualToString:@"admin"] && [self.passwordTextField.text isEqualToString:@"admin"])
+    NSString *login = self.loginTextField.text;
+    NSString *password = self.passwordTextField.text;
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    if ([appDelegate confirmAuthorizationWithLogin:login andPassword:password])
     {
         CustomTabBarController *controller = [CustomTabBarController new];
         [self presentViewController:controller animated:YES completion:nil];
+    } else
+    {
+        [self shakePasswordTextField];
     }
+}
+
+- (void) signupButtonAction:(UIButton*)sender
+{
+    SignUpVC *vc = [SignUpVC new];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

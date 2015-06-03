@@ -153,5 +153,29 @@ static dispatch_once_t predicate;
     return [film objectForKey:@"kpLink"];
 }
 
+- (NSArray*) getRandomFilmsIdsWithCount:(NSInteger)count
+{
+    NSMutableArray *films = [NSMutableArray new];
+    int i = 0;
+    while(i < count)
+    {
+        int identifier = rand() % self.films.count;
+        BOOL equal = NO;
+        for(NSNumber *number in films)
+        {
+            if ([number intValue] == identifier)
+            {
+                equal = YES;
+                break;
+            }
+        }
+        if (!equal)
+        {
+            [films addObject:[NSNumber numberWithInt:identifier]];
+            i++;
+        }
+    }
+    return films;
+}
 
 @end

@@ -17,7 +17,6 @@
 		847A87541B137AC300D109B7 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A87531B137AC300D109B7 /* Categories.m */; };
 		E10942811B1E7495001B4F71 /* CinemasProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E10942801B1E7495001B4F71 /* CinemasProvider.m */; };
 		E10942831B1E751C001B4F71 /* Cinemas.plist in Resources */ = {isa = PBXBuildFile; fileRef = E10942821B1E751C001B4F71 /* Cinemas.plist */; };
-		E19372F91B1491F000EB5A0F /* HomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19372F81B1491F000EB5A0F /* HomePageVC.m */; };
 		E199152E1B1E116B00FCF0A4 /* homeIconGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19915271B1E116B00FCF0A4 /* homeIconGrey@2x.png */; };
 		E199152F1B1E116B00FCF0A4 /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19915281B1E116B00FCF0A4 /* loginBackground@2x.png */; };
 		E19915301B1E116B00FCF0A4 /* mapIconGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19915291B1E116B00FCF0A4 /* mapIconGrey@2x.png */; };
@@ -50,7 +49,6 @@
 		E19B85A21B1E49AF0005A974 /* FilmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B85A11B1E49AF0005A974 /* FilmVC.m */; };
 		E19BB2CD1B14D75C000541C7 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BB2CC1B14D75C000541C7 /* CustomTabBarController.m */; };
 		E19BB2D21B14D76D000541C7 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BB2CF1B14D76D000541C7 /* MapVC.m */; };
-		E19BB2D31B14D76D000541C7 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BB2D11B14D76D000541C7 /* ProfileVC.m */; };
 		E19BB2D81B14D77B000541C7 /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BB2D51B14D77B000541C7 /* SearchVC.m */; };
 		E19BB2D91B14D77B000541C7 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BB2D71B14D77B000541C7 /* SettingsVC.m */; };
 		E1FEA5EA1B1E79F200EE5F05 /* avrora@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1FEA5DC1B1E79F200EE5F05 /* avrora@2x.png */; };
@@ -69,6 +67,8 @@
 		E1FEA5F71B1E79F200EE5F05 /* zamok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1FEA5E91B1E79F200EE5F05 /* zamok@2x.png */; };
 		E1FEA5FA1B1E7B9400EE5F05 /* CinemaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEA5F91B1E7B9400EE5F05 /* CinemaVC.m */; };
 		E1FEA5FE1B1E84D200EE5F05 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEA5FD1B1E84D200EE5F05 /* SignUpVC.m */; };
+		E1FEA6011B1F325800EE5F05 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEA6001B1F325800EE5F05 /* User.m */; };
+		E1FEA6051B1F3D0800EE5F05 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEA6041B1F3D0800EE5F05 /* HomeVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +100,6 @@
 		E109427F1B1E7495001B4F71 /* CinemasProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinemasProvider.h; sourceTree = "<group>"; };
 		E10942801B1E7495001B4F71 /* CinemasProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CinemasProvider.m; sourceTree = "<group>"; };
 		E10942821B1E751C001B4F71 /* Cinemas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cinemas.plist; sourceTree = "<group>"; };
-		E19372F71B1491F000EB5A0F /* HomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageVC.h; sourceTree = "<group>"; };
-		E19372F81B1491F000EB5A0F /* HomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageVC.m; sourceTree = "<group>"; };
 		E19915271B1E116B00FCF0A4 /* homeIconGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeIconGrey@2x.png"; sourceTree = "<group>"; };
 		E19915281B1E116B00FCF0A4 /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
 		E19915291B1E116B00FCF0A4 /* mapIconGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapIconGrey@2x.png"; sourceTree = "<group>"; };
@@ -139,8 +137,6 @@
 		E19BB2CC1B14D75C000541C7 /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
 		E19BB2CE1B14D76D000541C7 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		E19BB2CF1B14D76D000541C7 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
-		E19BB2D01B14D76D000541C7 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
-		E19BB2D11B14D76D000541C7 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 		E19BB2D41B14D77B000541C7 /* SearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
 		E19BB2D51B14D77B000541C7 /* SearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
 		E19BB2D61B14D77B000541C7 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
@@ -163,6 +159,10 @@
 		E1FEA5F91B1E7B9400EE5F05 /* CinemaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CinemaVC.m; sourceTree = "<group>"; };
 		E1FEA5FC1B1E84D200EE5F05 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
 		E1FEA5FD1B1E84D200EE5F05 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		E1FEA5FF1B1F325800EE5F05 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E1FEA6001B1F325800EE5F05 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E1FEA6031B1F3D0800EE5F05 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		E1FEA6041B1F3D0800EE5F05 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,9 +208,7 @@
 				E109427E1B1E7467001B4F71 /* Providers */,
 				E1FEA5FB1B1E7BB000EE5F05 /* AdditionalVCs */,
 				E19BB2DA1B14D79A000541C7 /* MainVCs */,
-				847A87361B136B3B00D109B7 /* Images.xcassets */,
-				847A87381B136B3B00D109B7 /* LaunchScreen.xib */,
-				847A872D1B136B3A00D109B7 /* CinemaRush.xcdatamodeld */,
+				E1FEA6021B1F326E00EE5F05 /* CoreData */,
 				847A87261B136B3A00D109B7 /* Supporting Files */,
 			);
 			path = CinemaRush;
@@ -219,6 +217,8 @@
 		847A87261B136B3A00D109B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				847A87381B136B3B00D109B7 /* LaunchScreen.xib */,
+				847A87361B136B3B00D109B7 /* Images.xcassets */,
 				E1FEA5DB1B1E79F200EE5F05 /* Cinemas */,
 				E19B85741B1E45840005A974 /* Films */,
 				E19BB2DB1B14E1F0000541C7 /* Images */,
@@ -302,16 +302,14 @@
 			children = (
 				E19BB2CB1B14D75C000541C7 /* CustomTabBarController.h */,
 				E19BB2CC1B14D75C000541C7 /* CustomTabBarController.m */,
-				E19372F71B1491F000EB5A0F /* HomePageVC.h */,
-				E19372F81B1491F000EB5A0F /* HomePageVC.m */,
 				E19BB2D41B14D77B000541C7 /* SearchVC.h */,
 				E19BB2D51B14D77B000541C7 /* SearchVC.m */,
+				E1FEA6031B1F3D0800EE5F05 /* HomeVC.h */,
+				E1FEA6041B1F3D0800EE5F05 /* HomeVC.m */,
 				E19BB2D61B14D77B000541C7 /* SettingsVC.h */,
 				E19BB2D71B14D77B000541C7 /* SettingsVC.m */,
 				E19BB2CE1B14D76D000541C7 /* MapVC.h */,
 				E19BB2CF1B14D76D000541C7 /* MapVC.m */,
-				E19BB2D01B14D76D000541C7 /* ProfileVC.h */,
-				E19BB2D11B14D76D000541C7 /* ProfileVC.m */,
 			);
 			name = MainVCs;
 			sourceTree = "<group>";
@@ -364,6 +362,16 @@
 				E1FEA5FD1B1E84D200EE5F05 /* SignUpVC.m */,
 			);
 			name = AdditionalVCs;
+			sourceTree = "<group>";
+		};
+		E1FEA6021B1F326E00EE5F05 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				847A872D1B136B3A00D109B7 /* CinemaRush.xcdatamodeld */,
+				E1FEA5FF1B1F325800EE5F05 /* User.h */,
+				E1FEA6001B1F325800EE5F05 /* User.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,15 +520,15 @@
 				E19BB2D91B14D77B000541C7 /* SettingsVC.m in Sources */,
 				E19BB2D21B14D76D000541C7 /* MapVC.m in Sources */,
 				E10942811B1E7495001B4F71 /* CinemasProvider.m in Sources */,
+				E1FEA6011B1F325800EE5F05 /* User.m in Sources */,
 				E1FEA5FE1B1E84D200EE5F05 /* SignUpVC.m in Sources */,
 				847A872C1B136B3A00D109B7 /* AppDelegate.m in Sources */,
 				E19B85731B1E39D80005A974 /* FilmsProvider.m in Sources */,
 				E1FEA5FA1B1E7B9400EE5F05 /* CinemaVC.m in Sources */,
 				E19BB2CD1B14D75C000541C7 /* CustomTabBarController.m in Sources */,
-				E19BB2D31B14D76D000541C7 /* ProfileVC.m in Sources */,
 				E19B85A21B1E49AF0005A974 /* FilmVC.m in Sources */,
-				E19372F91B1491F000EB5A0F /* HomePageVC.m in Sources */,
 				847A87291B136B3A00D109B7 /* main.m in Sources */,
+				E1FEA6051B1F3D0800EE5F05 /* HomeVC.m in Sources */,
 				847A87541B137AC300D109B7 /* Categories.m in Sources */,
 				E19BB2D81B14D77B000541C7 /* SearchVC.m in Sources */,
 				847A87511B136CE100D109B7 /* AuthorisationVC.m in Sources */,
