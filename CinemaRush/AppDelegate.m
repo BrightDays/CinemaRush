@@ -20,7 +20,6 @@
     
     AuthorisationVC *vc = [AuthorisationVC new];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
