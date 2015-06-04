@@ -170,7 +170,7 @@
         {
             cell.textLabel.text = @"Log Out";
             cell.accessoryView = nil;
-            [cell.imageView setImage:[UIImage imageNamed:@"restore_"]];
+            [cell.imageView setImage:[UIImage imageNamed:@"out_"]];
             return cell;
         }
         return nil;

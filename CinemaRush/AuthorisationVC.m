@@ -205,6 +205,8 @@
     {
         CustomTabBarController *controller = [CustomTabBarController new];
         [self presentViewController:controller animated:YES completion:nil];
+        self.loginTextField.text = @"";
+        self.passwordTextField.text = @"";
     } else
     {
         [self shakePasswordTextField];
