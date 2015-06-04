@@ -30,6 +30,10 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void) initControllers
 {
     SearchVC *searchVC = [SearchVC new];
@@ -51,10 +55,5 @@
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
 
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 
 @end
