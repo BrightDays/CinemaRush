@@ -58,17 +58,6 @@
     [self.view addGestureRecognizer:tapRecognizer];
 }
 
-
-- (void) initLogoImageView
-{
-    UIImage *logoImage = [UIImage imageNamed:@"iconMain300@2x.png"];
-    self.logoImageView = [[UIImageView alloc] initWithImage:logoImage];
-    CGFloat width = self.loginTextField.width / 2;
-    self.logoImageView.frame = CGRectMake((self.view.width - width) / 2, (self.loginTextField.originY - width) / 2, width, width);
-    self.logoImageView.alpha = 0.7f;
-    [self.view addSubview:self.logoImageView];
-}
-
 - (void) initLoginButton
 {
     self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(self.loginTextField.originX, self.passwordTextField.originY + self.passwordTextField.height + 20, self.textFieldsWidth, self.textFieldsHeight)];
@@ -80,17 +69,14 @@
     [self.view addSubview:self.loginButton];
 }
 
-- (void) initLoginTextField
+- (void) initLogoImageView
 {
-    self.loginTextField = [[UITextField alloc] initWithFrame:CGRectMake((self.view.width - self.textFieldsWidth) / 2, self.view.height / 2 - 60, self.textFieldsWidth, self.textFieldsHeight)];
-    self.loginTextField.backgroundColor = [UIColor whiteColorWithAlpha:0.4f];
-    self.loginTextField.placeholder = @"Login";
-    self.loginTextField.text = @"";
-    self.loginTextField.layer.cornerRadius = 10.f;
-    self.loginTextField.textColor = [UIColor whiteColorWithAlpha:0.8f];
-    self.loginTextField.textAlignment = NSTextAlignmentCenter;
-    self.loginTextField.tag = TextFieldTypeLogin;
-    self.loginTextField.delegate = self;
+    UIImage *logoImage = [UIImage imageNamed:@"iconMain300@2x.png"];
+    self.logoImageView = [[UIImageView alloc] initWithImage:logoImage];
+    CGFloat width = self.loginTextField.width / 2;
+    self.logoImageView.frame = CGRectMake((self.view.width - width) / 2, (self.loginTextField.originY - width) / 2, width, width);
+    self.logoImageView.alpha = 0.7f;
+    [self.view addSubview:self.logoImageView];
 }
 
 - (void) initPasswordTextField
@@ -106,6 +92,19 @@
     self.passwordTextField.delegate = self;
     self.passwordTextField.secureTextEntry = YES;
     self.passwordTextField.tag = TextFieldTypePassword;
+}
+
+- (void) initLoginTextField
+{
+    self.loginTextField = [[UITextField alloc] initWithFrame:CGRectMake((self.view.width - self.textFieldsWidth) / 2, self.view.height / 2 - 60, self.textFieldsWidth, self.textFieldsHeight)];
+    self.loginTextField.backgroundColor = [UIColor whiteColorWithAlpha:0.4f];
+    self.loginTextField.placeholder = @"Login";
+    self.loginTextField.text = @"";
+    self.loginTextField.layer.cornerRadius = 10.f;
+    self.loginTextField.textColor = [UIColor whiteColorWithAlpha:0.8f];
+    self.loginTextField.textAlignment = NSTextAlignmentCenter;
+    self.loginTextField.tag = TextFieldTypeLogin;
+    self.loginTextField.delegate = self;
 }
 
 - (void) initTextFields
@@ -160,6 +159,14 @@
 
 
 #pragma mark - Actions
+- (void) loginButtonAction:(UIButton*)sender
+{
+    if ([self.loginTextField.text isEqualToString:@"admin"] && [self.passwordTextField.text isEqualToString:@"admin"])
+    {
+        CustomTabBarController *controller = [CustomTabBarController new];
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
 
 - (void) tapOnBackgroundAction:(UITapGestureRecognizer*)sender
 {
@@ -169,14 +176,6 @@
     }
 }
 
-- (void) loginButtonAction:(UIButton*)sender
-{
-    if ([self.loginTextField.text isEqualToString:@"admin"] && [self.passwordTextField.text isEqualToString:@"admin"])
-    {
-        CustomTabBarController *controller = [CustomTabBarController new];
-        [self presentViewController:controller animated:YES completion:nil];
-    }
-}
 
 @end
  
