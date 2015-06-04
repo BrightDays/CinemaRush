@@ -46,29 +46,22 @@ static dispatch_once_t predicate;
     self.cinemas = [[NSMutableArray alloc] initWithArray:[[NSArray alloc] initWithContentsOfFile:path]];
 }
 
-- (void) setupFilmId:(NSInteger)identifier
+- (NSArray*)getCinemasForFilmWithId:(NSInteger)identifier
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Cinemas" ofType:@"plist"];
-    NSMutableArray *cinemas = [[NSMutableArray alloc] initWithArray:[[NSArray alloc] initWithContentsOfFile:path]];
-
-    if (identifier == -1)
-    {
-        self.cinemas = cinemas;
-        return;
-    }
-    
-    for(NSDictionary *cinema in cinemas)
+    NSMutableArray *cinemas = [NSMutableArray new];
+    for(NSDictionary *cinema in self.cinemas)
     {
         NSArray *films = [cinema objectForKey:@"films"];
         for(int i = 0; i < films.count; i++)
         {
             if ([films[i] integerValue] == identifier)
             {
-                [self.cinemas addObject:cinema];
+                [cinemas addObject:cinema];
                 break;
             }
         }
     }
+    return cinemas;
 }
 
 - (NSUInteger) getCountOfCinemas
@@ -98,7 +91,7 @@ static dispatch_once_t predicate;
     UIImage *image = [UIImage imageNamed:cinemaName];
     return image;
 }
-- (NSString*) getCinemaInfoBuId:(NSInteger)identifier
+- (NSString*) getCinemaInfoById:(NSInteger)identifier
 {
     NSDictionary *cinema = [self findCinemaById:identifier];
     return [cinema objectForKey:@"info"];
@@ -109,6 +102,12 @@ static dispatch_once_t predicate;
     CGFloat x = [[cinema objectForKey:@"x"] floatValue];
     CGFloat y = [[cinema objectForKey:@"y"] floatValue];
     return CGPointMake(x, y);
+}
+
+- (NSArray*) getfilmsIdsForCinemaWithId:(NSInteger)identifier
+{
+    NSDictionary *cinema = [self findCinemaById:identifier];
+    return [cinema objectForKey:@"films"];
 }
 
 @end

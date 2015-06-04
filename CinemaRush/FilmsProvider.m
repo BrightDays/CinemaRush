@@ -157,6 +157,7 @@ static dispatch_once_t predicate;
 {
     NSMutableArray *films = [NSMutableArray new];
     int i = 0;
+    srand(time(0));
     while(i < count)
     {
         int identifier = rand() % self.films.count;

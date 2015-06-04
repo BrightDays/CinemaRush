@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CinemaVC : UIViewController
+@interface CinemaVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (id) initWithCinemaId:(NSUInteger)identifier;
 

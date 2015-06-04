@@ -17,12 +17,13 @@
 + (id) new __attribute__((unavailable("new not available, call sharedProvider instead")));
 
 
-- (void) setupFilmId:(NSInteger)identifier;
+- (NSArray*)getCinemasForFilmWithId:(NSInteger)identifier;
 
 - (NSUInteger) getCountOfCinemas;
 - (NSString*) getCinemaNameById:(NSInteger)identifier;
 - (UIImage*) getCinemaImageById:(NSInteger)identifier;
-- (NSString*) getCinemaInfoBuId:(NSInteger)identifier;
+- (NSString*) getCinemaInfoById:(NSInteger)identifier;
 - (CGPoint) getCinemaCoordinatesById:(NSInteger)identifier;
+- (NSArray*) getfilmsIdsForCinemaWithId:(NSInteger)identifier;
 
 @end

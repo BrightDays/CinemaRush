@@ -10,17 +10,25 @@
 		<key>fileName</key>
 		<string>siverScreen</string>
 		<key>info</key>
-		<string>Кинотеатр Silver Screen Cinemas распахнул свои двери 13 ноября 2014 года. Это первый многозальный кинотеатр в Минске! </string>
+		<string>Кинотеатр Silver Screen Cinemas распахнул свои двери 13 ноября 2014 года. Это первый многозальный кинотеатр в Минске! В нем 7 аудиторий, в которых общее количество мест составляет 800.</string>
 		<key>films</key>
 		<array>
 			<integer>0</integer>
-			<string>3</string>
-			<string>8</string>
+			<integer>3</integer>
+			<integer>7</integer>
+			<integer>6</integer>
+			<integer>5</integer>
+			<integer>10</integer>
+			<integer>13</integer>
+			<integer>15</integer>
+			<integer>17</integer>
+			<integer>18</integer>
+			<integer>19</integer>
 		</array>
 		<key>x</key>
 		<real>53.890224</real>
 		<key>y</key>
-		<string>27.554375</string>
+		<real>27.554375</real>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -30,19 +38,284 @@
 		<key>fileName</key>
 		<string>zamok</string>
 		<key>info</key>
-		<string>3D Кино &quot;В Замке&quot; располагается на четвертом этаже торгового центра &quot;Замок&quot;.</string>
+		<string>3D Кино &quot;В Замке&quot; располагается на четвертом этаже торгового центра &quot;Замок&quot;. Кинотеатр включает в себя 3 кинозала и рассчитан на 650 мест.</string>
 		<key>films</key>
 		<array>
-			<string>0</string>
-			<string>1</string>
-			<string>2</string>
-			<string>3</string>
-			<string>4</string>
+			<integer>1</integer>
+			<integer>2</integer>
+			<integer>4</integer>
+			<integer>6</integer>
+			<integer>8</integer>
+			<integer>9</integer>
+			<integer>11</integer>
+			<integer>13</integer>
+			<integer>17</integer>
+			<integer>19</integer>
 		</array>
 		<key>x</key>
 		<real>53.92634</real>
 		<key>y</key>
-		<string>27.5174</string>
+		<real>27.5174</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>Беларусь</string>
+		<key>fileName</key>
+		<string>belarus</string>
+		<key>info</key>
+		<string>Кинотеатр «Беларусь» включает в себя 5 кинозалов вместительностью от 145 до 280 человек. </string>
+		<key>films</key>
+		<array>
+			<integer>1</integer>
+			<integer>8</integer>
+			<integer>3</integer>
+			<integer>5</integer>
+			<integer>6</integer>
+			<integer>11</integer>
+			<integer>12</integer>
+			<integer>14</integer>
+			<integer>18</integer>
+			<integer>19</integer>
+			<integer>10</integer>
+		</array>
+		<key>x</key>
+		<real>53.904982</real>
+		<key>y</key>
+		<real>27.542917</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>3</integer>
+		<key>name</key>
+		<string>Октябрь</string>
+		<key>fileName</key>
+		<string>oktiabr</string>
+		<key>info</key>
+		<string>Один из старейших минских кинотеатров и уж точно самый большой. Огромный зал с широкоформатным экраном вмещает 1181 зрителя.</string>
+		<key>films</key>
+		<array>
+			<integer>3</integer>
+			<integer>7</integer>
+			<integer>9</integer>
+			<integer>16</integer>
+			<integer>14</integer>
+			<integer>11</integer>
+			<integer>2</integer>
+		</array>
+		<key>x</key>
+		<real>53.922192</real>
+		<key>y</key>
+		<real>27.596788</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>4</integer>
+		<key>name</key>
+		<string>Центральный</string>
+		<key>fileName</key>
+		<string>central</string>
+		<key>info</key>
+		<string>В самом центре города находится кинотеатр &quot;Центральный&quot;, который включает в себя 166 мест (в том числе vip-зона - 12 двухместных диванов).</string>
+		<key>films</key>
+		<array>
+			<integer>6</integer>
+			<integer>8</integer>
+			<integer>10</integer>
+			<integer>12</integer>
+			<integer>14</integer>
+			<integer>16</integer>
+			<integer>18</integer>
+		</array>
+		<key>x</key>
+		<real>53.897705</real>
+		<key>y</key>
+		<real>27.552634</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>5</integer>
+		<key>name</key>
+		<string>Пионер</string>
+		<key>fileName</key>
+		<string>pioner</string>
+		<key>info</key>
+		<string>Кинотеатр «Пионер» впервые распахнул свои двери для минских киноманов в 1969 году. Кинозал одновременно вмещает в себя 278 человек. </string>
+		<key>films</key>
+		<array>
+			<integer>4</integer>
+			<integer>7</integer>
+			<integer>12</integer>
+			<integer>3</integer>
+			<integer>2</integer>
+			<integer>1</integer>
+			<integer>0</integer>
+		</array>
+		<key>x</key>
+		<real>53.899383</real>
+		<key>y</key>
+		<real>27.563032</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>6</integer>
+		<key>name</key>
+		<string>Аврора</string>
+		<key>fileName</key>
+		<string>avrora</string>
+		<key>info</key>
+		<string>Кинотеатр «Аврора» впервые распахнул двери своих кинозалов для минчан в 1987 году. В кинотеатре три зала – «Лазурный» (252 места), «Большой» (390) и зал повышенной комфортности (116).</string>
+		<key>films</key>
+		<array>
+			<integer>2</integer>
+			<integer>6</integer>
+			<integer>16</integer>
+			<integer>14</integer>
+			<integer>4</integer>
+		</array>
+		<key>x</key>
+		<real>53.908574</real>
+		<key>y</key>
+		<real>27.492669</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>7</integer>
+		<key>name</key>
+		<string>Берестье</string>
+		<key>fileName</key>
+		<string>berestie</string>
+		<key>info</key>
+		<string>В кинотеатре два зала: один на 297 мест (транслируется 3D контент), второй – на 150. В маленьком зале повышенной комфортности – мягкие театральные кресла, между рядами широкие проходы, бесшовный экран.</string>
+		<key>films</key>
+		<array>
+			<integer>0</integer>
+			<integer>7</integer>
+			<integer>17</integer>
+			<integer>6</integer>
+			<integer>7</integer>
+			<integer>13</integer>
+			<integer>14</integer>
+		</array>
+		<key>x</key>
+		<real>53.864174</real>
+		<key>y</key>
+		<real>27.483085</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>8</integer>
+		<key>name</key>
+		<string>Дворец Республики</string>
+		<key>fileName</key>
+		<string>dr</string>
+		<key>info</key>
+		<string>3D-кинозал во Дворце Республики открылся в сентябре 2010 года. Зал вмещает 349 человек, оборудован качественной видео и звуковой техникой и снискал славу одного из самых уютных в Минске.</string>
+		<key>films</key>
+		<array>
+			<integer>3</integer>
+			<integer>14</integer>
+			<integer>8</integer>
+			<integer>16</integer>
+			<integer>15</integer>
+			<integer>10</integer>
+			<integer>11</integer>
+			<integer>9</integer>
+			<integer>18</integer>
+		</array>
+		<key>x</key>
+		<real>53.903523</real>
+		<key>y</key>
+		<real>27.560159</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>9</integer>
+		<key>name</key>
+		<string>Дом кино</string>
+		<key>fileName</key>
+		<string>domKino</string>
+		<key>info</key>
+		<string>Здание кинотеатра рассчитано не только на кинопросмотры, но и на проведение различного рода выставок, фестивалей и других культурных мероприятий. Кинозал оснащён удобными мягкими креслами (584 места), (в том числе 26 мест – vip-ряд с мягкими диванами).</string>
+		<key>films</key>
+		<array>
+			<integer>5</integer>
+			<integer>9</integer>
+			<integer>14</integer>
+			<integer>6</integer>
+			<integer>15</integer>
+			<integer>16</integer>
+			<integer>12</integer>
+		</array>
+		<key>x</key>
+		<real>53.930617</real>
+		<key>y</key>
+		<real>27.610808</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>10</integer>
+		<key>name</key>
+		<string>Комсомолец</string>
+		<key>fileName</key>
+		<string>komsomol</string>
+		<key>info</key>
+		<string>В кинотеатре два зала на 218 и 186 мест, есть бар. &quot;Комсомолец&quot; считается &quot;студенческим&quot; кинотеатром – билеты недорогие, людей на сеансы приходит немного, поэтому полупустые залы на дневных сеансах и демократичные цены привлекают туда молодёжь.</string>
+		<key>films</key>
+		<array>
+			<integer>11</integer>
+			<integer>0</integer>
+			<integer>13</integer>
+		</array>
+		<key>x</key>
+		<real>53.870284</real>
+		<key>y</key>
+		<real>27.628683</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>11</integer>
+		<key>name</key>
+		<string>Победа</string>
+		<key>fileName</key>
+		<string>pobeda</string>
+		<key>info</key>
+		<string>&quot;Победа»&quot; является уникальным кинотеатром: он единственный в нашей стране является членом престижной Международной ассоциации &quot;Europa Cinemas. &quot;Победа&quot; может принять одновременно 488 зрителей.</string>
+		<key>films</key>
+		<array>
+			<integer>6</integer>
+			<integer>5</integer>
+			<integer>15</integer>
+			<integer>16</integer>
+			<integer>9</integer>
+		</array>
+		<key>x</key>
+		<real>53.901175</real>
+		<key>y</key>
+		<real>27.55436</real>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>12</integer>
+		<key>name</key>
+		<string>Ракета</string>
+		<key>fileName</key>
+		<string>raketa</string>
+		<key>info</key>
+		<string>Кинотеатр &quot;Ракета&quot; рассчитан на 45 человек, уютный, современный, с мягкими сидениями и удобными креслами-грушами. А в ноябре 2013 открылся после реставрации и большой зал &quot;Ракеты&quot; на 346 мест.</string>
+		<key>films</key>
+		<array>
+			<integer>17</integer>
+			<integer>13</integer>
+			<integer>6</integer>
+			<integer>5</integer>
+			<integer>4</integer>
+		</array>
+		<key>x</key>
+		<real>53.886023</real>
+		<key>y</key>
+		<real>27.587519</real>
 	</dict>
 </array>
 </plist>

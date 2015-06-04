@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *cinemas;
 
 @end
 
@@ -47,6 +48,12 @@
     [self initUI];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -60,12 +67,11 @@
     [self initSegmentedControl];
     [self initWebView];
     [self initTableView];
-    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void) initNavigationBar
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeButtonAction)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeButtonAction)];
     self.navigationItem.title = [[FilmsProvider sharedProvider] getFilmNameById:self.filmId];
     self.navigationController.navigationBar.barTintColor = tableViewCellColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -88,7 +94,7 @@
 {
     CGFloat originY = self.segmentedControl.originY + self.segmentedControl.height + 10;
     
-    [[CinemasProvider sharedProvider] setupFilmId:self.filmId];
+    self.cinemas = [[CinemasProvider sharedProvider] getCinemasForFilmWithId:self.filmId];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, originY, self.view.width, self.view.height - originY) style:UITableViewStylePlain];
     self.tableView.backgroundColor = tableViewBackColor;
@@ -138,7 +144,7 @@
 #pragma mark - TableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[CinemasProvider sharedProvider] getCountOfCinemas];
+    return self.cinemas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,10 +152,10 @@
     static NSString *identifier = @"cell";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     cell.backgroundColor = tableViewCellColor;
-    cell.textLabel.text = [[CinemasProvider sharedProvider] getCinemaNameById:indexPath.row];
+    cell.textLabel.text = [[CinemasProvider sharedProvider] getCinemaNameById:[[self.cinemas[indexPath.row] objectForKey:@"id"] intValue]];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.imageView.contentMode = UIViewContentModeScaleToFill;
-    cell.imageView.image = [[CinemasProvider sharedProvider] getCinemaImageById:indexPath.row];
+    cell.imageView.image = [[CinemasProvider sharedProvider] getCinemaImageById:[[self.cinemas[indexPath.row] objectForKey:@"id"] intValue]];
     cell.imageView.clipsToBounds = YES;
     cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     cell.imageView.layer.borderWidth = 1.f;
@@ -161,11 +167,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    CinemaVC *vc = [[CinemaVC alloc] initWithCinemaId:indexPath.row];
-    [[CinemasProvider sharedProvider] setupFilmId: -1];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.delegate presentViewController:nc animated:YES completion:nil];
+    CinemaVC *vc = [[CinemaVC alloc] initWithCinemaId:[[self.cinemas[indexPath.row] objectForKey:@"id"] intValue]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

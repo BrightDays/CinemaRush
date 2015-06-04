@@ -7,7 +7,39 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface SettingsVC : UIViewController
+typedef NS_ENUM(NSUInteger, SettingsVCSections)
+{
+    SettingsVCSectionSupport,
+    SettingsVCSectionSharing,
+    SettingsVCSectionLogOut,
+    SettingsVCSectionsCount
+};
+
+typedef NS_ENUM(NSUInteger, SettingsVCSectionSupportRow)
+{
+    SettingsVCSectionSupportRowFeedback,
+    SettingsVCSectionSupportRowsCount
+};
+
+
+typedef NS_ENUM(NSUInteger, SettingsVCSectionSharingRow)
+{
+    SettingsVCSectionSharingRowEmail,
+    SettingsVCSectionSharingRowFacebook,
+    SettingsVCSectionSharingRowTwitter,
+    SettingsVCSectionSharingRowsCount
+};
+
+typedef NS_ENUM(NSUInteger, SettingsVCSectionLogOutRow)
+{
+    SettingsVCSectionLogOutRowLogOut,
+    SettingsVCSectionLogOutRowsCount
+};
+
+
+
+@interface SettingsVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @end
