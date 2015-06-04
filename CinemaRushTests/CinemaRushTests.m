@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "FilmsProvider.h"
+#import "AppDelegate.h"
 
 @interface CinemaRushTests : XCTestCase
 
@@ -27,7 +29,16 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    XCTAssertEqualObjects([NSValue valueWithCGRect:[UIScreen mainScreen].bounds],[NSValue valueWithCGRect:app.window.frame]);
+}
+
+- (void)testSingletons
+{
+    FilmsProvider *provider1 = [FilmsProvider sharedProvider];
+    FilmsProvider *provider2 = [FilmsProvider sharedProvider];
+    
+    XCTAssertEqual(provider1, provider2);
 }
 
 - (void)testPerformanceExample {
