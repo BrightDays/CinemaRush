@@ -259,7 +259,7 @@
 -(void) tapOnBanner:(UIGestureRecognizer *)sender
 {
     FilmVC *vc = [[FilmVC alloc] initWithFilmId:[self.filmsIds[self.pageControl.currentPage] intValue]];
-    vc.mainController = self.tabBarController;
+    vc.tabBarController = self.tabBarController;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     __weak HomeVC *weakSelf = self;
     [self presentViewController:nc animated:YES completion:^{

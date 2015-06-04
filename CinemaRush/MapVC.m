@@ -6,9 +6,16 @@
 //  Copyright (c) 2015 BrightDays. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "MapVC.h"
+#import "Colors.h"
+#import "Categories.h"
+#import "CinemasProvider.h"
 
 @interface MapVC ()
+
+@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -16,9 +23,103 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = defaultColor;
+    [self setup];
+    [self initUI];
 }
- 
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    MKCoordinateRegion region;
+    region.center.latitude = 53.890224;
+    region.center.longitude = 27.554375;
+    
+    region.span.latitudeDelta = 0.15;
+    region.span.longitudeDelta = 0.15;
+    
+    MKCoordinateRegion scaledRegion = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:scaledRegion animated:YES];
+    
+}
+
+- (void) initUI
+{
+    [self initMapView];
+    [self initAnnotations];
+}
+
+- (void) setup
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startUpdatingLocation];
+    
+}
+
+
+- (void) initMapView
+{
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - self.tabBarController.tabBar.height)];
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    [self.mapView setMapType:MKMapTypeStandard];
+    [self.mapView setZoomEnabled:YES];
+    [self.mapView setScrollEnabled:YES];
+    [self.view addSubview:self.mapView];
+}
+
+- (void) initAnnotations
+{
+    for(int i = 0; i < [[CinemasProvider sharedProvider] getCountOfCinemas];i ++)
+    {
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        CGPoint location = [[CinemasProvider sharedProvider] getCinemaCoordinatesById:i];
+        CLLocationCoordinate2D myCoordinate = CLLocationCoordinate2DMake(location.x, location.y);
+        annotation.coordinate = myCoordinate;
+        annotation.title = [[CinemasProvider sharedProvider] getCinemaNameById:i];
+        [self.mapView addAnnotation:annotation];
+    }
+}
+
+
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+   [self.mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+    
+    }
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        if (!pinView)
+        {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            pinView.canShowCallout = YES;
+            if ([annotation.title isEqualToString:[[CinemasProvider sharedProvider] getNameOfNearestCinemaForLocation:self.mapView.userLocation.location]])
+            {
+                pinView.pinColor = MKPinAnnotationColorGreen;
+            } else
+            {
+                pinView.pinColor = MKPinAnnotationColorRed;
+            }
+        } else {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    return nil;
+}
+
  // А я великий прогер
  // Богиня Халявы
  // и Вообще очень  очень очень скромная 

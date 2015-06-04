@@ -10,9 +10,10 @@
 
 @interface FilmVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (id) initWithFilmId:(NSUInteger)identifier;
 @property (nonatomic) NSUInteger filmId;
+@property (nonatomic, weak) UITabBarController *tabBarController;
 
+- (id) initWithFilmId:(NSUInteger)identifier;
 - (void) reload;
 
 @end

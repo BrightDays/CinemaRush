@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface CinemasProvider : NSObject
 
@@ -25,5 +26,6 @@
 - (NSString*) getCinemaInfoById:(NSInteger)identifier;
 - (CGPoint) getCinemaCoordinatesById:(NSInteger)identifier;
 - (NSArray*) getfilmsIdsForCinemaWithId:(NSInteger)identifier;
+- (NSString*) getNameOfNearestCinemaForLocation:(CLLocation*)location;
 
 @end

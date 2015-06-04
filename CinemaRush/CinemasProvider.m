@@ -96,6 +96,31 @@ static dispatch_once_t predicate;
     NSDictionary *cinema = [self findCinemaById:identifier];
     return [cinema objectForKey:@"info"];
 }
+
+- (NSString*) getNameOfNearestCinemaForLocation:(CLLocation *)location
+{
+    CGFloat x = 53.89022;
+    CGFloat y = 27.55437;
+    if (location)
+    {
+        x = location.coordinate.latitude;
+        y = location.coordinate.longitude;
+    }
+    CGFloat distance = 1000;
+    NSDictionary *result;
+    for(NSDictionary *cinema in self.cinemas)
+    {
+        CGFloat x1 = [[cinema objectForKey:@"x"] floatValue];
+        CGFloat y1 = [[cinema objectForKey:@"y"] floatValue];
+        if ((x-x1)*(x-x1)+(y-y1)*(y-y1) < distance)
+        {
+            distance = (x-x1)*(x-x1)+(y-y1)*(y-y1);
+            result = cinema;
+        }
+    }
+    return [result objectForKey:@"name"];
+}
+
 - (CGPoint) getCinemaCoordinatesById:(NSInteger)identifier
 {
     NSDictionary *cinema = [self findCinemaById:identifier];

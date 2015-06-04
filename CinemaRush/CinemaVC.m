@@ -157,7 +157,6 @@
     } else
     {
         FilmVC *vc = [[FilmVC alloc] initWithFilmId:[self.films[indexPath.row] integerValue]];
-        vc.mainController = self;
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.navigationController pushViewController:nc animated:YES];
     }
@@ -172,7 +171,8 @@
 
 - (void) showInMapButtonAction:(UIButton*)sender
 {
-    
+    [self.tabBarController setSelectedIndex:1];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

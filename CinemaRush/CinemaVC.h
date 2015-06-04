@@ -13,5 +13,6 @@
 
 - (id) initWithCinemaId:(NSUInteger)identifier;
 @property (nonatomic, weak) FilmVC *mainController;
+@property (nonatomic, weak) UITabBarController *tabBarController;
 
 @end

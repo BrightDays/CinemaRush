@@ -178,6 +178,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     CinemaVC *vc = [[CinemaVC alloc] initWithCinemaId:[[self.cinemas[indexPath.row] objectForKey:@"id"] intValue]];
     vc.mainController = self;
+    vc.tabBarController = self.tabBarController;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
