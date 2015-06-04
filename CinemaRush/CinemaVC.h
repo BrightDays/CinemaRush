@@ -11,5 +11,6 @@
 @interface CinemaVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (id) initWithCinemaId:(NSUInteger)identifier;
+@property (nonatomic, weak) UIViewController *mainController;
 
 @end

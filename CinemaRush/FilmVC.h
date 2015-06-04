@@ -11,6 +11,6 @@
 @interface FilmVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id) initWithFilmId:(NSUInteger)identifier;
-@property (nonatomic, weak) UIViewController *delegate;
+@property (nonatomic, weak) UIViewController *mainController;
 
 @end
