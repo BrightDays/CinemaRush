@@ -7,8 +7,6 @@
 //
 
 #import "SettingsVC.h"
-
-//#import "BDAEmailComposer.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
@@ -19,10 +17,13 @@
 
 
 
-@property(nonatomic, strong) UITableView *tableView;
-@property(nonatomic, strong) NSArray *settingsKeys;
-@property(nonatomic, strong) NSMutableArray *settingsValues;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *settingsKeys;
+@property (nonatomic, strong) NSMutableArray *settingsValues;
 @property (nonatomic) BOOL showInterstitialAd;
+
+@property (nonatomic, strong) UIView *topBarView;
+@property (nonatomic, strong) UILabel *topBarLabel;
 
 @end
 
@@ -49,13 +50,23 @@
 
 - (void) setUpTopBar
 {
-   
+    self.topBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
+    self.topBarView.backgroundColor = defaultColor;
+    self.topBarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, self.view.width, 40)];
+    self.topBarLabel.backgroundColor = [UIColor clearColor];
+    self.topBarLabel.textAlignment = NSTextAlignmentCenter;
+    self.topBarLabel.textColor = [UIColor whiteColor];
+    self.topBarLabel.text = @"Settings";
+    self.topBarLabel.font = [UIFont fontWithName:@"Helvetica" size:20.f];
+    [self.topBarView addSubview:self.topBarLabel];
+    [self.view addSubview:self.topBarView];
+
 }
 
 - (void) setUpTableView
 {
     static NSString *cellIdentifier = @"SettingsCell";
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.view.width, self.view.height) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
@@ -86,8 +97,9 @@
 }
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    
     NSString* name;
     if (section == SettingsVCSectionSupport)
     {
@@ -102,16 +114,9 @@
                 name = @"LOG OUT";
             } else
                 name = @"";
-    
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, 35)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, -7, 80, 15)];
-    [label setText:name];
-    [label setFont:[UIFont fontWithName:@"Helvetica-Light" size:11.f]];
-    [label setTextColor:[UIColor grayColor]];
-    [view addSubview:label];
-    
-    return view;
+    return name;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -222,14 +227,20 @@
         }
         if (indexPath.row == SettingsVCSectionSharingRowEmail)
         {
-            NSString *mailTo = @"brightdayswork@gmail.com";
-            NSString *mailSubject = @"Feedback";
-            NSString *msgBody = @"Please describe the problem:\n\r";
+            NSString *mailTo = @"friendEmail@email.com";
+            NSString *mailSubject = @"WOW!";
+            NSString *msgBody = @"Use cool app: CinemaRush";
             [self sendEmailTo: mailTo ? @[mailTo] : nil withSubject:mailSubject andMessage:msgBody andAttachmentData:nil];
         }
         
     }
-
+    if (indexPath.section == SettingsVCSectionLogOut)
+    {
+        if (indexPath.row == SettingsVCSectionLogOutRowLogOut)
+        {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
     
 }
 
@@ -248,10 +259,11 @@
     if (actionSheet.tag == 1)
     {
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        NSArray *texts = @[@"Report a defect", @"Feature request", @"Other"];
         if (buttonIndex != actionSheet.cancelButtonIndex)
         {
             NSString *mailTo = @"brightdayswork@gmail.com";
-            NSString *mailSubject = @"Feedback";
+            NSString *mailSubject = texts[buttonIndex];
             NSString *msgBody = @"Please describe the problem:\n\r";
             [self sendEmailTo: mailTo ? @[mailTo] : nil withSubject: mailSubject andMessage: msgBody andAttachmentData: nil];
         }
