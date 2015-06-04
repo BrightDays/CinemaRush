@@ -15,7 +15,7 @@
 
 @interface FilmVC ()
 
-@property (nonatomic) NSUInteger filmId;
+
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
@@ -45,6 +45,15 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = defaultColor;
+    [self initUI];
+}
+
+- (void) reload
+{
+    for(UIView *view in self.view.subviews)
+    {
+        [view removeFromSuperview];
+    }
     [self initUI];
 }
 
@@ -168,6 +177,7 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     CinemaVC *vc = [[CinemaVC alloc] initWithCinemaId:[[self.cinemas[indexPath.row] objectForKey:@"id"] intValue]];
+    vc.mainController = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

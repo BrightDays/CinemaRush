@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilmVC.h"
 
 @interface CinemaVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (id) initWithCinemaId:(NSUInteger)identifier;
-@property (nonatomic, weak) UIViewController *mainController;
+@property (nonatomic, weak) FilmVC *mainController;
 
 @end

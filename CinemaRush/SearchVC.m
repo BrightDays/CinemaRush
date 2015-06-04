@@ -141,7 +141,7 @@
     self.searchText = @"";
     self.searchBar.text = @"";
     [self.tableView reloadData];
-    vc.mainController = self;
+    vc.mainController = self.tabBarController;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }

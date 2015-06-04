@@ -11,6 +11,7 @@
 #import "Categories.h"
 #import "CinemasProvider.h"
 #import "FilmsProvider.h"
+#import "FilmVC.h"
 
 @interface CinemaVC ()
 
@@ -148,8 +149,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    
+    if (self.mainController)
+    {
+        self.mainController.filmId = [self.films[indexPath.row] integerValue];
+        [self.mainController reload];
+        [self.navigationController popViewControllerAnimated:YES];
+    } else
+    {
+        FilmVC *vc = [[FilmVC alloc] initWithFilmId:[self.films[indexPath.row] integerValue]];
+        vc.mainController = self;
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self.navigationController pushViewController:nc animated:YES];
+    }
 }
 
 

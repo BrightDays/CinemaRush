@@ -99,8 +99,6 @@
     self.viewSize = CGSizeMake(self.view.width, self.view.height);
     self.bannerSize = CGSizeMake((self.view.width - self.marginLeft * 2),(self.view.width - self.marginLeft * 2) * 10/7) ;
     self.bannersCount = kControllersCount;
-    
-//    self.filmsIds = [[FilmsProvider sharedProvider] getRandomFilmsIdsWithCount:kControllersCount];
 }
 
 - (void) setUpTopBar
@@ -261,6 +259,7 @@
 -(void) tapOnBanner:(UIGestureRecognizer *)sender
 {
     FilmVC *vc = [[FilmVC alloc] initWithFilmId:[self.filmsIds[self.pageControl.currentPage] intValue]];
+    vc.mainController = self.tabBarController;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     __weak HomeVC *weakSelf = self;
     [self presentViewController:nc animated:YES completion:^{
